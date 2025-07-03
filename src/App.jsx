@@ -1,37 +1,64 @@
-import './App.css'
+import React from 'react';
+import { FaCat } from "react-icons/fa";
 
 function App() {
-  return <div>
-    <h1 class="text-3xl font-bold underline bg-blue-900 p-8 border-4"> Hello world! </h1>
-    <button class="uppercase rounded-full bg-green-900 p-5 md:bg-red-600  "> Me clique </button>
-    <form action="https://getform.io/f/aejlnxdb" method="POST">
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="message" />
-      {/* add hidden Honeypot input to prevent spams */}
-      <input type="hidden" name="_gotcha" style={{ display: "none !important" }} />
-      {/* checkbox handle */}
-      <input
-        type="checkbox"
-        name="subscribe"
-        defaultValue="yes"
-        defaultChecked=""
-      />
-      <input type="hidden" name="subscribe" defaultValue="no" />
-      {/* radio button handle */}
-      <input type="radio" name="gender" defaultValue="male" defaultChecked="" />
-      <input type="radio" name="gender" defaultValue="female" />
-      <input type="radio" name="gender" defaultValue="other" />
-      {/* select field handle */}
-      <select name="work-experience">
-        <option value="one-year">0-1 years</option>
-        <option value="one-five-years">1-5 years</option>
-      </select>
-      <button type="submit">Send</button>
-    </form>
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Header com a listra branca */}
+      <div className="bg-white h-16 shadow-md w-full z-10">
+        <div className="h-full flex justify-center items-center">
+          <div className="flex items-center gap-x-3">
+            <FaCat className="text-3xl text-purple-600" />
+            <span className="text-2xl font-bold text-purple-600">
+              DudaSys
+            </span>
+            <FaCat className="text-3xl text-purple-600" />
+          </div>
+        </div>
+      </div>
 
+      {/* Conteúdo principal com o formulário */}
+      <div className="bg-pink-300 flex-grow flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-sm">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">Entrar na sua conta</h2>
 
-  </div>
+          {/* Formulário simplificado para login */}
+          <form action="https://getform.io/f/bnlxplwb" method="POST">
+
+            {/* Campo de Email */}
+            <div className="mb-3">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                className="text-lg shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            {/* Campo de Senha */}
+            <div className="mb-3">
+              <input
+                type="password"
+                name="Senha"
+                id="password"
+                placeholder="Digite sua senha"
+                className="text-lg shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            {/* Botão de Envio */}
+            <button
+              className="text-lg bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              type="submit"
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
